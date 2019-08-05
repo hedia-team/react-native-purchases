@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.reactlibrary.purchases;
 
 import android.app.Activity;
 import android.util.Log;
@@ -38,6 +38,8 @@ public class RNPurchasesModule extends ReactContextBaseJavaModule implements Upd
 
     private List<SkuDetails> products = new ArrayList<>();
     private static final String PURCHASER_INFO_UPDATED = "Purchases-PurchaserInfoUpdated";
+    private static final String PURCHASER_CONFIRMATION = "Purchases-PurchaserConfirmed";
+
 
     private final ReactApplicationContext reactContext;
 
@@ -481,6 +483,9 @@ public class RNPurchasesModule extends ReactContextBaseJavaModule implements Upd
                     map.putString("productIdentifier", purchase.getSku());
                     map.putMap("purchaserInfo", mapPurchaserInfo(purchaserInfo));
                     promise.resolve(map);
+
+                    reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                            .emit(RNPurchasesModule.PURCHASER_CONFIRMATION, purchase.getOriginalJson());
                 }
 
                 @Override

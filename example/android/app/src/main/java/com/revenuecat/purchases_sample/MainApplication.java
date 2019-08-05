@@ -3,7 +3,7 @@ package com.revenuecat.purchases_sample;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.reactlibrary.RNPurchasesPackage;
+import com.reactlibrary.purchases.RNPurchasesPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;

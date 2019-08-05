@@ -26,6 +26,11 @@ eventEmitter.addListener("Purchases-PurchaserInfoUpdated", purchaserInfo => {
   purchaserInfoUpdateListeners.forEach(listener => listener(purchaserInfo));
 });
 
+eventEmitter.addListener("Purchases-PurchaserConfirmed", purchaserConfirmed => {
+  purchaserInfoUpdateListeners.forEach(listener => listener(purchaserConfirmed));
+  console.log(purchaserConfirmed);
+});
+
 export default class Purchases {
   /**
    * Sets up Purchases with your API key and an app user id.
