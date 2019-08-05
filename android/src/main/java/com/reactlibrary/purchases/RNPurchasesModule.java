@@ -482,10 +482,10 @@ public class RNPurchasesModule extends ReactContextBaseJavaModule implements Upd
                     WritableMap map = Arguments.createMap();
                     map.putString("productIdentifier", purchase.getSku());
                     map.putMap("purchaserInfo", mapPurchaserInfo(purchaserInfo));
-                    promise.resolve(map);
-
                     reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                            .emit(RNPurchasesModule.PURCHASER_CONFIRMATION, purchase.getOriginalJson());
+                        .emit(RNPurchasesModule.PURCHASER_CONFIRMATION, purchase.getOriginalJson());
+                    map.putString("purchaserConfirmed", purchase.getOriginalJson());
+                    promise.resolve(map);
                 }
 
                 @Override

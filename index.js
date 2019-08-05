@@ -28,7 +28,6 @@ eventEmitter.addListener("Purchases-PurchaserInfoUpdated", purchaserInfo => {
 
 eventEmitter.addListener("Purchases-PurchaserConfirmed", purchaserConfirmed => {
   purchaserInfoUpdateListeners.forEach(listener => listener(purchaserConfirmed));
-  console.log(purchaserConfirmed);
 });
 
 export default class Purchases {
